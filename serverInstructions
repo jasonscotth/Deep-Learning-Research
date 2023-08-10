@@ -1,0 +1,20 @@
+login:
+ssh hwb2i@login.hpc.svc.cluster.local
+
+password:
+**************
+
+clear:
+ssh-keygen -f "/home/jovyan/.ssh/known_hosts" -R "login.hpc.svc.cluster.local"
+
+copy to cluster
+scp filename username@login.hpc.svc.cluster.local:~/.
+
+copy from cluster
+scp username@login.hpc.svc.cluster.local:~/filename .
+
+run job
+sbatch -n 8 -t 180 translation-random.sh
+
+check cluster task manager
+squeue
